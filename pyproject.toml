@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "emi-customizations"
+version = "0.1.0"
+description = "Personalizaciones de Open edX para emi.aprende.gob.mx (Dirección General @prende.mx)"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "AGPL-3.0-or-later"
+authors = [{ name = "Dirección General @prende.mx" }]
+classifiers = [
+    "Programming Language :: Python :: 3.11",
+    "Framework :: Django",
+]
+
+[project.urls]
+Homepage = "https://github.com/aprendemx/emi-customizations"
+
+# Punto de entrada del sistema de plugins de Open edX.
+# El LMS descubre la app por aquí; no hace falta tocar INSTALLED_APPS
+# ni montar directorios desde el host.
+[project.entry-points."lms.djangoapp"]
+emi_customizations = "emi_customizations.apps:EmiCustomizationsConfig"
+
+[tool.setuptools.packages.find]
+include = ["emi_customizations*"]
