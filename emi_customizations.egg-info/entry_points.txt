@@ -1,0 +1,2 @@
+[lms.djangoapp]
+emi_customizations = emi_customizations.apps:EmiCustomizationsConfig

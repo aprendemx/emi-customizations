@@ -96,20 +96,13 @@ _CATALOG_SORT_MODULES = (
 
 
 def _natural_sort_key(course):
-    """
-    Clave de orden que trata los números como números.
-
-    "A1+", "A2", "A2+", "B1", "B1+" salen en ese orden; con un sorted()
-    alfabético simple, "A10" iría antes que "A2".
-    """
     display_name = course.display_name_with_default
-    partes = re.split(r"([A-Za-z]+|\d+)", display_name)
+    partes = [p for p in re.split(r"(\d+)", display_name) if p]
     clave = []
     for parte in partes:
         if parte.isdigit():
             clave.append((1, int(parte), ""))
         else:
-            # Tupla homogénea para que la comparación nunca mezcle tipos.
             clave.append((0, 0, parte.lower()))
     return clave
 
