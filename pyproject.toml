@@ -4,11 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "emi-customizations"
-version = "0.1.0"
+version = "0.1.1"
 description = "Personalizaciones de Open edX para emi.aprende.gob.mx (Dirección General @prende.mx)"
 readme = "README.md"
 requires-python = ">=3.11"
-license = "AGPL-3.0-or-later"
+license = { text = "AGPL-3.0-or-later" }
 authors = [{ name = "Dirección General @prende.mx" }]
 classifiers = [
     "Programming Language :: Python :: 3.11",
